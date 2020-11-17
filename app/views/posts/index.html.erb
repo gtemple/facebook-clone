@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <nav>
-
+<% if user_signed_in? %>
   <%= link_to 'Sign out', destroy_user_session_path %>
+<% else %>
+  <%= link_to 'Sign in', user_session_path %>
+<% end %>
 </nav>
 
 <h1>Posts</h1>
@@ -21,7 +24,7 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.user_id %></td>
+        <td><%= link_to post.user.email, user_path(post.user_id) %></td>
         <td><%= post.body %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>

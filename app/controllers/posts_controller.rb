@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all.order("created_at DESC")
-    @post = current_user.posts.build
+    @post = post_exists?
   end
 
   # GET /posts/1
@@ -71,5 +71,9 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:body)
+    end
+
+    def post_exists?
+      current_user.posts.build if current_user != nil
     end
 end
