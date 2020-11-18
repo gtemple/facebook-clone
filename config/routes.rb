@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   resources :posts, :users
+  resources :friend_requests, only: [:create, :destroy]
+  resources :friendships, only: [:create, :destroy]
   root to: 'posts#index'
 
 end
