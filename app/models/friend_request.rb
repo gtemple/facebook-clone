@@ -7,6 +7,7 @@ class FriendRequest < ApplicationRecord
     requester.friends << requestee
     self.destroy
   end
+  
   def decline
     self.destroy
   end

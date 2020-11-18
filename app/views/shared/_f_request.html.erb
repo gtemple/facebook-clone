@@ -1,11 +1,7 @@
 <% if @user != current_user %>
-  <% if friends.include?(user)%>
-    <%= button_to 'Remove Friend', friendship_path(user), method: 'delete' %>
-      <% else %>
-    <%= button_to 'Add Friend'%>
-
-
+  <% if @friends.include?(@user)%>
+    <%= button_to 'Remove Friend', friendship_path(@user), method: 'delete' %>
+  <% else %>
+    <%= button_to 'Add Friend', friend_requests_path(@user), method: 'post' %>
   <% end %>
-
-
 <% end %>
