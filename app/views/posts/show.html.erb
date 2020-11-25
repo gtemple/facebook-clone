@@ -1,1 +1,7 @@
 <%= @post.body %>
+<% @post.comments.each do |c| %>
+  <br>
+    <%= c.body %>
+  <br>
+<% end %>
+<%= link_to 'Add comment', new_post_comment_path(@post.id) %>

@@ -13,5 +13,5 @@ class User < ApplicationRecord
 
   has_many :received_friend_requests, class_name: 'FriendRequest', foreign_key: :requestee_id, dependent: :destroy
 
-  has_many :comments, through: :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
