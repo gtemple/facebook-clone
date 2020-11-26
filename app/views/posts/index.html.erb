@@ -5,29 +5,32 @@
 
 <h1>Posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+
 
   <%= render 'form' %>
 
-  <tbody>
+
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= link_to post.user.email, user_path(post.user_id) %></td>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+        <%= link_to post.user.email, user_path(post.user_id) %>
+        <%= post.body %>
+        <%= link_to 'Show', post %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        
+
+        <% post.comments.each do |c| %>
+          <br>
+          <%= c.body %>
+          <%= link_to c.user.email, user_path(:user_id) %>
+          <br>
+        <% end %>
+  
+        
+        <%= render 'comment_form', :post => post %>
+      
     <% end %>
-  </tbody>
-</table>
+
 
 <br>
 

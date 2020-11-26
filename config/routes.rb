@@ -12,9 +12,8 @@ Rails.application.routes.draw do
   resources :posts do
      resources :comments, only: [:new, :create, :destroy]
   end
+  
   resources :users
-  resources :friend_requests, only: [:create, :destroy]
-  resources :friendships, only: [:create, :destroy]
   root to: 'posts#index'
 
 end

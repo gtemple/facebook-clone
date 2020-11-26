@@ -14,8 +14,7 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :body %>
-      <%= form.text_area :body %>
+      <%= form.text_area :body, placeholder: "What's on your mind, #{current_user.email}?" %>
     </div>
 
     <div class="actions">

@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <%= form_with(model: [post, post.comments.new], url: post_comments_path(post), method: "post", local: true) do |form| %>
+  
+
+    <div class="field">
+      <%= form.label :body %>
+      <%= form.text_area :body %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+<% else %>
+  Please sign in to comment on the post!
+<% end %>
