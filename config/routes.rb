@@ -13,7 +13,8 @@ Rails.application.routes.draw do
      resources :comments, only: [:new, :create, :destroy]
   end
   
-  resources :users
+  resources :users, :after_signups
+  resources :friendships
   root to: 'posts#index'
 
 end

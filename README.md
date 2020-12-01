@@ -9,3 +9,5 @@
 4. Added comment controller and model
 
 5. Implemented comments form directly on post index
+
+6. installed bootstrap

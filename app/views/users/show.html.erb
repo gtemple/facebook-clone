@@ -1,5 +1,8 @@
 <%= @user.email %> 
 <%= render 'shared/f_request' %>
+<br><br>
+
+<%= link_to "#{@user.email} friends", friendships_path(@user) %>
 
 
 

@@ -1,10 +1,26 @@
 class FriendshipsController < ApplicationController
+  #before_action :user_page
+
+  def index
+    @user = User.find(params[:id])
+    @friendships = @user.friendships
+  end
+
+  def new
+
+  end
+
   def create
-    friend_request = FriendRequest.find_by(id: params[:friend_request])
-    friend_request.accept
+    @friendship = current_user.friendship.build(@user_friend)
   end
 
   def destroy
-    friendship = Friendship.where('user_id = ? AND friend_id?', current_user.id, params[:id])[0]
+
   end
+
+  private
+  #def user_page
+  #  @user_friends = User.find(params[:id])
+  #end
+
 end

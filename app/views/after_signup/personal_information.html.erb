@@ -1,0 +1,6 @@
+<% form_with(model: @user, method: "post", :url => wizard_path local: true) do |f| %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+
+  <%= f.submit 'Next' %>
+<% end %>

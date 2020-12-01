@@ -6,10 +6,12 @@
 <h1>Posts</h1>
 
 
+<div>
+  <div>
+    <%= render 'form' %>
+  </div>
 
-  <%= render 'form' %>
-
-
+  <div>
     <% @posts.each do |post| %>
 
         <%= link_to post.user.email, user_path(post.user_id) %>
@@ -17,19 +19,19 @@
         <%= link_to 'Show', post %>
         <%= link_to 'Edit', edit_post_path(post) %>
         <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        
-
+      
         <% post.comments.each do |c| %>
           <br>
           <%= c.body %>
           <%= link_to c.user.email, user_path(:user_id) %>
           <br>
         <% end %>
-  
         
         <%= render 'comment_form', :post => post %>
-      
     <% end %>
+  </div>
+
+<div>
 
 
 <br>

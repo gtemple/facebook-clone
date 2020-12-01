@@ -1,0 +1,8 @@
+
+<% if @friendships != nil %>
+  <% @friendships.each do |friend| %>
+    <%= friend.email %><br>
+  <% end %>
+<% else %>
+  You don't have any friends yet!
+<% end%>
