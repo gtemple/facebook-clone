@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
 
   devise_scope :user do
@@ -13,7 +14,8 @@ Rails.application.routes.draw do
      resources :comments, only: [:new, :create, :destroy]
   end
   
-  resources :users, :after_signups
+  resources :users
+  resources :user_steps
   resources :friendships
   root to: 'posts#index'
 
