@@ -1,6 +1,8 @@
-<%= form_with(model: @user, method: "post", :url => wizard_path, local: true) do |f| %>
+<%= form_with(model: @user, method: :put, :url => wizard_path) do |f| %>
   <%= f.text_field :first_name %>
   <%= f.text_field :last_name %>
 
   <%= f.submit 'Next' %>
 <% end %>
+
+<%= link_to 'skip', next_wizard_path %>
