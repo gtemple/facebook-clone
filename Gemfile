@@ -8,6 +8,7 @@ gem 'wicked'
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'jquery-rails'
+gem 'country_select', '~> 4.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'

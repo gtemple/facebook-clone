@@ -1,8 +1,47 @@
 <%= form_with(model: @user, method: :put, :url => wizard_path) do |f| %>
-  <%= f.text_field :first_name %>
-  <%= f.text_field :last_name %>
+  
+  <div class='field'>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
 
-  <%= f.submit 'Next' %>
+  <div class='field'>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :birthday%>
+    <%= f.date_select :birthday, start_year: Time.now.year - 120, end_year: Time.new.year - 13 %>
+  </div>
+
+
+  <div class='field'>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :region %>
+    <%= f.text_field :region %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :country %>
+    <%= f.country_select :country %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :high_school %>
+    <%= f.text_field :high_school %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :post_secondary %>
+    <%= f.text_field :post_secondary %>
+  </div>
+
+  <div class='action'>
+    <%= f.submit 'Next' %>
+  </div>
 <% end %>
-
-<%= link_to 'skip', next_wizard_path %>
