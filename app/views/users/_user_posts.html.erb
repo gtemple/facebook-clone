@@ -1,0 +1,36 @@
+
+<div>
+  <div><%= @user.workplace%></div>
+  <div><%= @user.post_secondary%></div>
+  <div><%= @user.high_school%></div>
+  <div><%= "#{@user.city}, #{@user.region}"%></div>
+  <div><%= @user.remember_created_at %></div>
+</div>
+
+<div>
+  <%= link_to "#{@user.email} friends", friendships_path(@user) %>
+</div>
+
+<div>
+    <%= render 'posts/form' %>
+</div>
+
+
+
+  <%= @user.posts.each do |post| %>
+
+  <%= link_to post.user.email, user_path(post.user_id) %>
+          <%= post.body %>
+          <%= link_to 'Show', post %>
+          <%= link_to 'Edit', edit_post_path(post) %>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        
+          <% post.comments.each do |c| %>
+            <br>
+            <%= c.body %>
+            <%= link_to c.user.email, user_path(:user_id) %>
+            <br>
+          <% end %>
+          
+          <%= render 'posts/comment_form', :post => post %>
+  <% end %>

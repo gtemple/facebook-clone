@@ -1,6 +1,13 @@
-<%= @user.email %> 
-<%= render 'shared/f_request' %>
+<div>
+  <%= "#{@user.first_name} #{@user.last_name}" %> 
+</div>
+<%# render 'shared/f_request' %>
 <br><br>
 
-<%= link_to "#{@user.email} friends", friendships_path(@user) %>
-<br>
+<div>
+  <%= render 'profile_nav'%>
+</div>
+
+<div>
+  <%= render 'user_posts'%>
+</div>

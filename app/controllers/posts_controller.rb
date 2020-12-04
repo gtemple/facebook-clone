@@ -76,4 +76,5 @@ class PostsController < ApplicationController
     def post_exists?
       current_user.posts.build if current_user != nil
     end
+
 end
