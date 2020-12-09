@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  get 'likes/create'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   
   resources :users
   resources :user_steps
-  resources :friendships
+  resources :friendships, only: [:index, :create, :destroy]
   root to: 'posts#index'
 
 end

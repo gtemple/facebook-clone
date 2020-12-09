@@ -1,5 +1,7 @@
-<% if current_user %>
+<% if @user == current_user %>
   <%= link_to 'Edit Profile', edit_user_path %>
+<% else %>
+  <%= render 'friendship_button', @user %>
 <% end %>
 
 <br>
