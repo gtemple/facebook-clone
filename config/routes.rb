@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   
   resources :users
   resources :user_steps
+  resources :likes, only: [:create, :destroy]
   resources :friendships, only: [:index, :create, :destroy]
   root to: 'posts#index'
 
