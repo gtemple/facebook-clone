@@ -15,7 +15,6 @@ class User < ApplicationRecord
 
   has_many :likes, dependent: :destroy
 
-  
 
   def active_friends
     friends.select { |friend| friend.friends.include?(self) }
@@ -23,5 +22,11 @@ class User < ApplicationRecord
 
   def pending_friends 
     friends.select{ |friend| !friend.friends.include?(self)}
+  end
+
+  searchable do
+    text :first_name, :boost => 2.0
+    text :last_name
+
   end
 end
