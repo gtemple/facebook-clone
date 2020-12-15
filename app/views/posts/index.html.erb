@@ -23,6 +23,7 @@
         <% post.comments.each do |c| %>
           <br>
           <%= c.body %>
+          <%= c.likes.length %>
           <%= link_to c.user.email, user_path(:user_id) %>
           <br>
         <% end %>

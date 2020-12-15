@@ -2,8 +2,9 @@ class LikesController < ApplicationController
   before_action :find_liked_post
 
   def create
-    @user = current_user.id
-    @liked_post.likes.create(user_id: current_user.id)
+    @like = @likeable.likes.build(user_id: current_user.id)
+    if @likeable.likeable_type == 'Comment'
+    end
   end
 
   def destroy
@@ -12,6 +13,7 @@ class LikesController < ApplicationController
   private
 
   def find_liked_post
-    @liked_post = Post.find(params[:post_id]) || Comment.find(params[:commend_id])
+    @likeable = Comment.find(params[:comment_id]) if params[:comment_id]
+    @likeable = Post.find(params[:post_id]) if params[:post_id]
   end
 end
